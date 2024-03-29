@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,35 @@
     <link rel="stylesheet" href="styles.css">
     <title>Login Page</title>
 </head>
+
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action="login.php" method="post">
             <h2>LOGIN</h2>
+            <?php if (isset($_GET['error'])) { ?>
+
+                <p class="error">
+                    <?php echo $_GET['error']; ?>
+                </p>
+
+            <?php } ?>
             <div class="input-group">
                 <span class="icon">
                     <ion-icon name="person"></ion-icon>
                 </span>
-                <input type="text" placeholder="Username" required>
+                <input type="text" name="uname" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <span class="icon">
                     <ion-icon name="lock-closed"></ion-icon>
                 </span>
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
-            <div class="forgot-pass">
-                <a href="#">Forgot Password?</a>
-            </div>
-            <button type="submit" onclick="window.location.href='index.html'" class="btn">Login</button>
+            <button type="submit" class="btn">Login</button>
         </form>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-</html> 
+
+</html>
