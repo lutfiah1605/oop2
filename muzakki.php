@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Dashboard</title>
+    <title>Muzakki</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -70,8 +70,7 @@ if (!isset($_SESSION['username'])) {
                                             <h3 class="text-start">Data Muzakki</h3>
                                         </div>
                                         <div class="col-3">
-                                            <p class="text-end"><a href="tambahberas.php" class="btn btn-success">Tambah
-                                                    Data</a>
+                                            <p class="text-end"><a href="tambahmuzakki.php" class="btn btn-success">Tambah Data</a>
                                             </p>
                                         </div>
                                     </div>
@@ -91,7 +90,7 @@ if (!isset($_SESSION['username'])) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $query = "select * from muzakki";
+                                                $query = "select * from muzakki, beras WHERE muzakki.id_beras = beras.id";
                                                 $no = 1;
                                                 foreach ($db->tampilData($query) as $row) {
                                                     ?>
@@ -105,16 +104,16 @@ if (!isset($_SESSION['username'])) {
                                                         <td>
                                                             <?php echo $row['alamat']; ?>
                                                         </td>
-                                                        <td>
+                                                        <td align="center">
                                                             <?php echo $row['jml_jiwa']; ?>
                                                         </td>
-                                                        <td>
-                                                            <?php echo $row['beras_pilihan']; ?>
+                                                        <td align="center">
+                                                            Rp. <?php echo number_format($row['harga_ltr']); ?>/Ltr
                                                         </td>
                                                         <td>
-                                                            <a href="#?id=<?php echo $row['id']; ?>"
+                                                            <a href="#?id=<?php echo $row['id_muzakki']; ?>"
                                                                 class="btn btn-warning">Edit</a>
-                                                            <a href="hapusdata.php?id=<?php echo $row['id']; ?>"
+                                                            <a href="hapusmuzakki.php?id=<?php echo $row['id_muzakki']; ?>"
                                                                 class="btn btn-danger"
                                                                 onclick="return confirm('Are you sure?')">Hapus</a>
                                                         </td>

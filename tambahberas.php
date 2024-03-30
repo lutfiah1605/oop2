@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +48,7 @@ if (!isset($_SESSION['username'])) {
         $harga_ltr = $_POST['harga_ltr'];
         $harga_jiwa = $_POST['harga_jiwa'];
         $db->tambahberas($harga_ltr, $harga_jiwa);
-        header("location: dashboard.php", true, 301);
+        header("location: databeras.php", true, 301);
     }
     ?>
 </body>
