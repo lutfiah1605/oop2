@@ -8,9 +8,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="styles2.css">
     <title>Tambah Muzakki</title>
 </head>
 
@@ -19,18 +17,18 @@ ob_start();
         <div class="row">
             <form action="" name="tambah" method="post">
                 <div class="mb-3 col-12">
-                    <label class="form-label">Nama</label>
-                    <div class="col-6"> <input type="text" name="nama" id=""></div>
+                    <label class="form-label" style="font-size: 20px; color: white;">Nama</label>
+                    <div class="col-6"> <input type="text" name="nama" id="" style="width: 620px;"></div>
                 </div>
                 <div class="mb-3 col-12">
-                    <label class="col-6 form-label">Alamat</label>
-                    <div class="col-6"> <textarea name="alamat" id="" cols="30" rows="10"></textarea>
+                    <label class="col-6 form-label" style="font-size: 20px; color: white;">Alamat</label>
+                    <div class="col-6"> <textarea name="alamat" id="" cols="90" rows="10"></textarea>
                         <div>
                         </div>
 
-                        <div class="col-6"><label class="form-label">Jumlah Jiwa</label>
+                        <div class="col-6"><label class="form-label" style="font-size: 20px; color: white;">Jumlah Jiwa</label>
                             <div class="col-6">
-                                <select name="jml_jiwa" id="jml_jiwa">
+                                <select name="jml_jiwa" id="jml_jiwa" style="width: 600px;">
                                     <option value="">- Pilih -</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -50,9 +48,9 @@ ob_start();
                                 </select>
                             </div>
                         </div>
-                        <div class="col-6"><label class="form-label">Harga Beras</label>
+                        <div class="col-6"><label class="form-label" style="font-size: 20px; color: white;">Harga Beras</label>
                             <div class="col-6">
-                                <select name="id_beras" id="id_beras">
+                                <select name="id_beras" id="id_beras" style="width: 600px;">
                                     <option value="">-Pilih-</option>
                                     <?php
                                     include "koneksi.php";
