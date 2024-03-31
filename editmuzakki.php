@@ -15,7 +15,7 @@
     <?php
     include "koneksi.php";
     $db = new koneksi;
-    $id = $_GET['id'];
+    $id = $_GET['id_muzakki'];
     $query = "select * from muzakki where id_muzakki = '$id'";
     $no = 1;
     foreach ($db->tampilData($query) as $row) {
