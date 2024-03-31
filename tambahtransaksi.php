@@ -14,15 +14,13 @@
             <form action="" name="tambah" method="post">
                 <div class="col-6"><label for="" style="font-size: 20px; color: white;"> Muzakki</label></div>
                 <div class="col-6">
-                    <select name="id_muzakki" id="id_muzakki" onclick="total()" style="width: 600px;">
+                    <select name="id_muzakki" id="id_muzakki" onchange="total()" style="width: 600px;">
                         <option value="">-Pilih-</option>
                         <?php
                         include "koneksi.php";
                         $db = new koneksi;
-                        $total =0;
                         $query = "select * from muzakki, beras WHERE muzakki.id_beras = beras.id";
                         foreach ($db->tampilData($query) as $row) {
-                            $total = ($row['harga_ltr'] * 3.5)* $row['jml_jiwa'] ;
                             ?>
 
                             <option value="<?php echo $row['id_muzakki']; ?>">
@@ -44,14 +42,17 @@
                     </select>
                 </div>
 
-                <div class="col-6 mt-2"><input type="submit" name="simpan" value="simpan"> <input type="reset" value="hapus"></div>
+                <div class="col-6 mt-2"><input type="submit" name="simpan" value="simpan"> <input type="reset"
+                        value="hapus"></div>
             </form>
 
         </div>
     </div>
     <script type="text/javascript">
         function total() {
-            document.getElementById('tagihan').value = <?php echo $total; ?>;
+            var total = (<?php echo $row['harga_ltr']; ?> * 3.5) * <?php echo $row['jml_jiwa']; ?>
+
+            document.getElementById('tagihan').value =  total;
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
