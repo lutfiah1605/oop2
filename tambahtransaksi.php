@@ -14,7 +14,7 @@
             <form action="" name="tambah" method="post">
                 <div class="col-6"><label for="" style="font-size: 20px; color: white;"> Muzakki</label></div>
                 <div class="col-6">
-                    <select name="id_muzakki" id="id_muzakki" onchange="total()" style="width: 600px;">
+                    <select name="id_muzakki" id="id_muzakki" onclick="total()" style="width: 600px;">
                         <option value="">-Pilih-</option>
                         <?php
                         include "koneksi.php";
@@ -44,8 +44,7 @@
                     </select>
                 </div>
 
-                <div class="col-6 mt-2"><input type="submit" name="simpan" value="simpan"> <input type="reset"
-                        value="hapus"></div>
+                <div class="col-6 mt-2"><input type="submit" name="simpan" value="simpan"> <input type="reset" value="hapus"></div>
             </form>
 
         </div>

@@ -111,7 +111,7 @@ if (!isset($_SESSION['username'])) {
                                                             Rp. <?php echo number_format($row['harga_ltr']); ?>/Ltr
                                                         </td>
                                                         <td>
-                                                            <a href="#?id=<?php echo $row['id_muzakki']; ?>"
+                                                            <a href="editmuzakki.php?id=<?php echo $row['id_muzakki']; ?>"
                                                                 class="btn btn-warning">Edit</a>
                                                             <a href="hapusmuzakki.php?id=<?php echo $row['id_muzakki']; ?>"
                                                                 class="btn btn-danger"

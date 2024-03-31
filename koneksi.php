@@ -35,7 +35,7 @@
         public function editmuzakki($nama,$alamat,$jml_jiwa,$id_beras,$id){
             mysqli_query($this->koneksi, "UPDATE muzakki SET nama='$nama', alamat='$alamat', jml_jiwa='$jml_jiwa', id_beras='$id_beras' WHERE id_muzakki='$id' ");
         }
-        public function hapusmuzakki($id_muzakki){            
+        public function hapusmuzakki($id_muzakki){
             mysqli_query($this->koneksi, "DELETE FROM muzakki WHERE id_muzakki = '$id_muzakki'");
         }
         public function tambahtransaksi($id_muzakki,$tagihan,$status){
