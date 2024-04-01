@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="height: 350px;">
         <div class="row">
             <form action="" name="tambah" method="post">
                 <div class="col-6"><label for="" style="font-size: 20px; color: white;"> Harga/Ltr</label></div>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
         $harga_ltr = $_POST['harga_ltr'];
         $harga_jiwa = $_POST['harga_jiwa'];
         $db->tambahberas($harga_ltr, $harga_jiwa);
-        header("location: dashboard.php", true, 301);
+        header("location: databeras.php", true, 301);
     }
     ?>
 </body>
