@@ -47,6 +47,15 @@
         public function hapustransaksi($id){            
             mysqli_query($this->koneksi, "DELETE FROM transaksi WHERE id = '$id'");
         }
+        public function tambahdata($nama,$alamat,$jml_jiwa,$tagihan,$status,$id_beras){
+            mysqli_query($this->koneksi, "INSERT INTO muzakkitransaksi (nama, alamat, jml_jiwa, tagihan, status, id_beras) VALUES ('$nama', '$alamat', '$jml_jiwa', '$tagihan', '$status', '$id_beras')");
+        }
+        public function editdata($nama,$alamat,$jml_jiwa,$tagihan,$status,$id_beras,$id){
+            mysqli_query($this->koneksi, "UPDATE muzakkitransaksi SET nama='$nama', alamat='$alamat', jml_jiwa='$jml_jiwa', tagihan='$tagihan', status='$status', id_beras='$id_beras' WHERE id='$id' ");
+        }
+        public function hapus($id){            
+            mysqli_query($this->koneksi, "DELETE FROM muzakkitransaksi WHERE id = '$id'");
+        }
     }
     // $db = new koneksi;   
     // $query = "select * from fakultas";
