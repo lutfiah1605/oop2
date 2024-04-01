@@ -23,8 +23,8 @@
             </div>
             <div class="card-body" style="height: 300px;">
                 <div class="mb-3">
-                    <label class="form-label" style="font-size: 20px; color : white;">Harga/Liter</label>
-                    <input type="text" name="harga_ltr" id="harga_ltr" class="form-control" onchange="total()" value="<?php echo $row['harga_ltr']; ?>" style="width: 485px;">
+                    <label class="form-label" style="font-size: 20px; color : white; padding : 2px;">Harga/Liter</label>
+                    <input type="text" name="harga_ltr" id="harga_ltr" class="form-control" onchange="total()" value="<?php echo $row['harga_ltr']; ?>" style="width: 480px;">
                 </div>
                 <div class="mb-3">
                     <label class="form-label" style="font-size: 20px; color : white;">Harga/Jiwa</label>

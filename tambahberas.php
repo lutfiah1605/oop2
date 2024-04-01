@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="height: 350px;">
         <div class="row">
             <form action="" name="tambah" method="post">
                 <div class="col-6"><label for="" style="font-size: 20px; color: white;"> Harga/Ltr</label></div>

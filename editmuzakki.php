@@ -1,15 +1,14 @@
+
 <?php
 ob_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles3.css">
 
     <title></title>
 </head>
@@ -26,20 +25,20 @@ ob_start();
         ?>
         <form action="" name="edit" method="post">
             <div class="card col-6 mt-2 ms-2">
-                <div class="card-header">
+                <div class="card-header" style="font-size: 25px; text-align: center; font-weight: bold; color: white;">
                     Edit Data Muzakki
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <label class="form-label">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control" value="<?php echo $row['nama']; ?>">
+                        <label class="form-label" style="font-size: 20px; color : white; padding: 5px;">Nama</label>
+                        <input type="text" name="nama" id="nama" class="form-control" value="<?php echo $row['nama']; ?>" style="width: 524px;">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Alamat</label>
+                        <label class="form-label" style="font-size: 20px; color : white;">Alamat</label>
                         <input type="text" name="alamat" id="alamat" class="form-control"
-                            value="<?php echo $row['alamat']; ?>">
+                            value="<?php echo $row['alamat']; ?>" style="width: 524px;">
                     </div>
-                    <div class="col-6"><label class="form-label">Jumlah Jiwa</label>
+                    <div class="col-6"><label class="form-label" style="font-size: 20px; color : white;">Jumlah Jiwa</label>
                         <div class="col-6">
                             <select name="jml_jiwa" id="jml_jiwa" style="width: 600px;">
                                 <option value="<?php echo $row['jml_jiwa'] ?>"><?php echo $row['jml_jiwa']; ?></option>
@@ -61,7 +60,7 @@ ob_start();
                             </select>
                         </div>
                     </div>
-                    <div class="col-6"><label class="form-label">Harga Beras</label>
+                    <div class="col-6"><label class="form-label" style="font-size: 20px; color : white;">Harga Beras</label>
                         <div class="col-6">
                             <select name="id_beras" id="id_beras" style="width: 600px;">
                                 <?php
