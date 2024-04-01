@@ -25,7 +25,6 @@
             <li><a href="databeras.php"><i class="fa fa-database yellow_color"></i> <span>Data Beras</span></a></li>
             <li><a href="muzakki.php"><i class="fa fa-user"></i> <span>Muzakki</span></a></li>
             <li><a href="transaksi.php"><i class="fa fa-credit-card blue_color"></i> <span>Transaksi</span></a></li>
-            <li><a href="muzakkitransaksi.php"><i class="fa fa-credit-card blue_color"></i> <span>new</span></a></li>
         </ul>
     </div>
 </nav>
