@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Dashboard</title>
+   <title>Data Beras</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -97,13 +97,13 @@ if (!isset($_SESSION['username'])) {
                                              <?php echo $no; ?>
                                           </td>
                                           <td>
-                                             <?php echo $row['harga_ltr']; ?>
+                                             Rp. <?php echo number_format($row['harga_ltr']); ?>
                                           </td>
                                           <td>
-                                             <?php echo $row['harga_jiwa']; ?>
+                                          Rp. <?php echo number_format($row['harga_jiwa']); ?>
                                           </td>
                                           <td>
-                                             <a href="#?id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a>
+                                             <a href="editberas.php?id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a>
                                              <a href="hapusdata.php?id=<?php echo $row['id']; ?>" class="btn btn-danger"
                                                 onclick="return confirm('Are you sure?')">Hapus</a>
                                           </td>

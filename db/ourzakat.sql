@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2024 at 10:05 AM
+-- Generation Time: Apr 01, 2024 at 04:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,7 @@ INSERT INTO `beras` (`id`, `harga_ltr`, `harga_jiwa`) VALUES
 (15, '13500', '47250'),
 (16, '14000', '49000'),
 (17, '14500', '50750'),
-(18, '15000', '52500');
+(23, '15000', '52500');
 
 -- --------------------------------------------------------
 
@@ -63,6 +63,17 @@ CREATE TABLE `muzakki` (
   `id_beras` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `muzakki`
+--
+
+INSERT INTO `muzakki` (`id_muzakki`, `nama`, `alamat`, `jml_jiwa`, `id_beras`) VALUES
+(12, 'SANGYOGA WAHYU UTOMO', 'wasd', 2, 15),
+(22, 'adit', 'adas', 9, 23),
+(23, 'agus', 'asdad', 10, 7),
+(24, 'ahmad', 'dasa', 3, 23),
+(27, 'HAN NOAH', 'KOREA ', 5, 15);
+
 -- --------------------------------------------------------
 
 --
@@ -71,11 +82,20 @@ CREATE TABLE `muzakki` (
 
 CREATE TABLE `transaksi` (
   `id` int(11) NOT NULL,
-  `id_muzakki` int(11) NOT NULL,
-  `tgl` date DEFAULT NULL,
-  `tagihan` varchar(100) DEFAULT NULL,
+  `id_muzakki` int(11) DEFAULT NULL,
+  `tagihan` varchar(255) DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id`, `id_muzakki`, `tagihan`, `status`) VALUES
+(9, 12, '94500', 'Lunas'),
+(14, 22, '472500', 'Lunas'),
+(15, 23, '350000', 'Lunas'),
+(19, 27, '236250', 'Lunas');
 
 -- --------------------------------------------------------
 
@@ -94,7 +114,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'Admin', 'admin');
+(1, 'Admin', 'admin'),
+(5, 'adit', '12345'),
+(6, 'yoga', '123');
 
 --
 -- Indexes for dumped tables
@@ -111,14 +133,14 @@ ALTER TABLE `beras`
 --
 ALTER TABLE `muzakki`
   ADD PRIMARY KEY (`id_muzakki`),
-  ADD UNIQUE KEY `id_beras` (`id_beras`);
+  ADD KEY `muzakki_ibfk_1` (`id_beras`);
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_muzakki` (`id_muzakki`);
+  ADD KEY `transaksi_ibfk_1` (`id_muzakki`);
 
 --
 -- Indexes for table `user`
@@ -134,19 +156,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `beras`
 --
 ALTER TABLE `beras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `muzakki`
+--
+ALTER TABLE `muzakki`
+  MODIFY `id_muzakki` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -156,13 +184,13 @@ ALTER TABLE `user`
 -- Constraints for table `muzakki`
 --
 ALTER TABLE `muzakki`
-  ADD CONSTRAINT `muzakki_ibfk_1` FOREIGN KEY (`id_beras`) REFERENCES `beras` (`id`);
+  ADD CONSTRAINT `muzakki_ibfk_1` FOREIGN KEY (`id_beras`) REFERENCES `beras` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_muzakki`) REFERENCES `muzakki` (`id_muzakki`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_muzakki`) REFERENCES `muzakki` (`id_muzakki`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

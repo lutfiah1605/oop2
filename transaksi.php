@@ -17,7 +17,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Dashboard</title>
+    <title>Transaksi</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -72,7 +72,7 @@ if (!isset($_SESSION['username'])) {
                                             <h3 class="text-start">Data Transaksi</h3>
                                         </div>
                                         <div class="col-3">
-                                            <p class="text-end"><a href="tambahberas.php" class="btn btn-success">Tambah
+                                            <p class="text-end"><a href="tambahtransaksi.php" class="btn btn-success">Tambah
                                                     Data</a>
                                             </p>
                                         </div>
@@ -86,14 +86,14 @@ if (!isset($_SESSION['username'])) {
                                                     <th>No</th>
                                                     <th>Muzakki</th>
                                                     <th>Tanggal Transaksi</th>
-                                                    <th>Jumlah Bayar</th>
+                                                    <th>Tagihan</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $query = "select * from transaksi";
+                                                $query = "select * from transaksi, muzakki where transaksi.id_muzakki = muzakki.id_muzakki";
                                                 $no = 1;
                                                 foreach ($db->tampilData($query) as $row) {
                                                     ?>
@@ -102,21 +102,19 @@ if (!isset($_SESSION['username'])) {
                                                             <?php echo $no; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['id_muzakki']; ?>
+                                                            <?php echo $row['nama']; ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['tgl']; ?>
+                                                            <?php echo date('F j, Y'); ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo $row['tagihan']; ?>
+                                                            Rp. <?php echo number_format($row['tagihan']); ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $row['status']; ?>
                                                         </td>
                                                         <td>
-                                                            <a href="#?id=<?php echo $row['id']; ?>"
-                                                                class="btn btn-warning">Edit</a>
-                                                            <a href="hapusdata.php?id=<?php echo $row['id']; ?>"
+                                                            <a href="hapustransaksi.php?id=<?php echo $row['id']; ?>"
                                                                 class="btn btn-danger"
                                                                 onclick="return confirm('Are you sure?')">Hapus</a>
                                                         </td>
